@@ -1,0 +1,7 @@
+.listGroup{
+    color:aqua;
+    border: 1px solid white;
+    border-radius: 6px ;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .7);
+    background-color: aquamarine;
+}

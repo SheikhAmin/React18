@@ -6,6 +6,8 @@ import "./App.css";
 //import Button from "./components/Exercise1";
 import Button from "./components/Button";
 import AlertFunc from "./components/AlertMe";
+import ButtonEx from "./components/ButtonForExercise";
+
 /*
   {
     alertVisible && (
@@ -37,7 +39,7 @@ function App() {
         alertVisible && <AlertFunc onClose={() =>setVisibility(false)}>Alert</AlertFunc> 
       }
       <Button color="primary" onClick={() =>{setVisibility(true)}} children="Hello" />
-    
+      < ButtonEx onClick={()=>{}}>My Button</ButtonEx>
     </div>
   );
 }
