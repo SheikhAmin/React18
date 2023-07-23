@@ -1,0 +1,11 @@
+.value{
+    color: antiquewhite;
+    border: 1px solid aqua;
+    border-radius: 6px;
+    font-size: 80px;
+    margin-left: 6px;
+    padding: 5px;
+}
+.value:hover{
+    color: black;
+}

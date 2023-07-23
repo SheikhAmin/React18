@@ -5,3 +5,20 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, .7);
     background-color: aquamarine;
 }
+.listGroup:hover{
+    color:black;
+}
+.btn{
+    padding: 8px 12px;
+    border-radius: 6px ;
+    border: 1px solid white;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, .7);
+     color: aqua;
+}
+.btn:hover{
+    color: black;
+}
+.btn-primary{
+
+    color: aquamarine;
+}

@@ -7,6 +7,8 @@ import "./App.css";
 import Button from "./components/Button";
 import AlertFunc from "./components/AlertMe";
 import ButtonEx from "./components/ButtonForExercise";
+import { AiOutlineHeart } from "react-icons/ai";
+import Icon from "./components/ReactIcon";
 
 /*
   {
@@ -35,11 +37,18 @@ function App() {
 /*<ListGroup items={items} heading={'Cities'} onSelectItem={handleSelectItem} />*/
   return (
     <div>
-      {
-        alertVisible && <AlertFunc onClose={() =>setVisibility(false)}>Alert</AlertFunc> 
-      }
-      <Button color="primary" onClick={() =>{setVisibility(true)}} children="Hello" />
-      < ButtonEx onClick={()=>{}}>My Button</ButtonEx>
+      {alertVisible && (
+        <AlertFunc onClose={() => setVisibility(false)}>Alert</AlertFunc>
+      )}
+      <Button
+        color="primary"
+        onClick={() => {
+          setVisibility(true);
+        }}
+        children="Hello"
+      />
+      <ButtonEx onClick={() => {}}>My Button</ButtonEx>
+      <Icon onClick={()=>console.log("Clicked")}/>
     </div>
   );
 }
