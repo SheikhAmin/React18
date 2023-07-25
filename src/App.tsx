@@ -9,6 +9,8 @@ import AlertFunc from "./components/AlertMe";
 import ButtonEx from "./components/ButtonForExercise";
 import { AiOutlineHeart } from "react-icons/ai";
 import Icon from "./components/ReactIcon";
+import NavBar from "./components/NavBar";
+import Cart from "./components/Cart";
 
 /*
   {
@@ -50,19 +52,13 @@ function App() {
     console.log(item);
   }*/
 /*<ListGroup items={items} heading={'Cities'} onSelectItem={handleSelectItem} />*/
-const [game, setGame] = useState({
-  id:1,
-  player:{
-    name:'John',
-  },
-});
 
-const handleClick = () =>{
-   setGame({...game, player:{...game.player, name:'Bob'}})
-}
+
+  const [cartItems,setCartItems] = useState(['Product 1','Product 2']);
   return (
     <div>
-      
+      <NavBar cartItemsCount={cartItems.length} />
+      <Cart onClear={() => setCartItems([])} cartItems={cartItems}/>
     </div>
   );
 }
