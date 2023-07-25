@@ -28,16 +28,9 @@ import Icon from "./components/ReactIcon";
 
   */
  //const [alertVisible, setVisibility] = useState(false);
-function App() {
-  const [alertVisible,setVisibility] = useState(false);
-  /*let items = ["New York", "San Francisco", "Tokyo", "Paris"];
-  const handleSelectItem = (item:string) => {
-    console.log(item);
-  }*/
-/*<ListGroup items={items} heading={'Cities'} onSelectItem={handleSelectItem} />*/
-  return (
-    <div>
-      {alertVisible && (
+ //const [alertVisible, setVisibility] = useState(false);
+ /*
+{alertVisible && (
         <AlertFunc onClose={() => setVisibility(false)}>Alert</AlertFunc>
       )}
       <Button
@@ -49,6 +42,27 @@ function App() {
       />
       <ButtonEx onClick={() => {}}>My Button</ButtonEx>
       <Icon onClick={()=>console.log("Clicked")}/>
+ */
+function App() {
+  
+  /*let items = ["New York", "San Francisco", "Tokyo", "Paris"];
+  const handleSelectItem = (item:string) => {
+    console.log(item);
+  }*/
+/*<ListGroup items={items} heading={'Cities'} onSelectItem={handleSelectItem} />*/
+const [game, setGame] = useState({
+  id:1,
+  player:{
+    name:'John',
+  },
+});
+
+const handleClick = () =>{
+   setGame({...game, player:{...game.player, name:'Bob'}})
+}
+  return (
+    <div>
+      
     </div>
   );
 }
