@@ -14,6 +14,8 @@ import Icon from "./components/ReactIcon";
 //import UpdatingObjects from "./components/UpdatingObjects";
 //import ExpandableText from "./components/ExpandableText";
 import Form from './components/Form';
+import ExpenseList from "./expense-tracker/components/ExpenseList";
+import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
 /*
   {
     alertVisible && (
@@ -54,12 +56,22 @@ function App() {
     console.log(item);
   }*/
 /*<ListGroup items={items} heading={'Cities'} onSelectItem={handleSelectItem} />*/
-
-
-  const [cartItems,setCartItems] = useState(['Product 1','Product 2']);
+ const [selectedCategory,setSelectedCategory] = useState('');
+ const [expenses,setExpenses] = useState([
+   { id: 1, description: "aaa", amount: 10, category: "Utilities" },
+   { id: 2, description: "bbb", amount: 10, category: "Utilities" },
+   { id: 3, description: "ccc", amount: 10, category: "Utilities" },
+   { id: 4, description: "ddd", amount: 10, category: "Utilities" },
+ ]);
+  //const [cartItems,setCartItems] = useState(['Product 1','Product 2']);
+  const visibleExpenses = selectedCategory ? expenses.filter((e) => e.category === selectedCategory) : expenses;
   return (
     <div>
-     <Form />
+      <div className="mb-3">
+        <ExpenseFilter onSelectCategory={(category) =>setSelectedCategory(category)}/>
+      </div>
+      
+     <ExpenseList expenses={visibleExpenses} onDelete={(id)=>setExpenses(expenses.filter((e) => e.id !== id))} />
     </div>
   );
 }
