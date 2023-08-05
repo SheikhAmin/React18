@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import "./App.css";
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 //import Alert from "./components/Alert";
 //import Exercise1 from "./components/Exercise1";
 //import Button from "./components/Exercise1";
@@ -61,9 +61,13 @@ interface User {
 
 function App() {
   const [users, setUsers] = useState<User[]>([]);
+  const [error, setError] = useState('');
   useEffect(() => { 
-    axios.get<User[]>('https://jsonplaceholder.typicode.com/users').then((response) => setUsers(response.data));
-  },[])
+    axios
+      .get<User[]>('https://jsonplaceholder.typicode.com/users')
+      .then((response) => setUsers(response.data))
+      .catch((error) => setError(error.message))
+  },[error])
   /*const ref = useRef<HTMLInputElement>(null);*/
  /* const [category, setCategory] = useState('');*/
   /*let items = ["New York", "San Francisco", "Tokyo", "Paris"];
@@ -81,9 +85,13 @@ function App() {
   //const [cartItems,setCartItems] = useState(['Product 1','Product 2']);
   const visibleExpenses = selectedCategory ? expenses.filter((e) => e.category === selectedCategory) : expenses;
   return (
-    <ul>
+    <>
+      { error && <p className="text-danger">{ error}</p>}
+      <ul>
       {users.map((user) => <li key={user.id}>{ user.name}</li>)}
-   </ul> 
+      </ul> 
+    </>
+ 
    
   );
 }
